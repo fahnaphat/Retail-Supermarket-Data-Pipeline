@@ -1,0 +1,12 @@
+mydbt:
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: airflow
+      pass: airflow
+      port: 5432
+      dbname: postgres
+      schema: public
+      threads: 1
+  target: dev
