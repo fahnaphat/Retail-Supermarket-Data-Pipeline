@@ -6,7 +6,7 @@ mydbt:
       user: airflow
       pass: airflow
       port: 5432
-      dbname: postgres
-      schema: public
+      dbname: retail_supermarket
+      schema: supermarket_dbt
       threads: 1
   target: dev
