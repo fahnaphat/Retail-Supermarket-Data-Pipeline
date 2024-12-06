@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: raw_retail_supermarket
+    database: retail_supermarket
+    schema: public
+    tables:
+      - name: supermarket
+      - name: location
+      - name: goods
+      - name: category
