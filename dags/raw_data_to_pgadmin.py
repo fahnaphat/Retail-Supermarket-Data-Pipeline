@@ -349,4 +349,9 @@ with DAG('raw_data_to_pgadmin', default_args=default_args, schedule_interval='@d
         python_callable = _insert_supermarket
     )
 
-    create_pgadmin_table >> [get_category, get_sub_category, get_location, get_supermarket] >> clear_all_data >> [insert_category, insert_location] >> insert_goods >> insert_supermarket
+    (
+        create_pgadmin_table >> 
+        [get_category, get_sub_category, get_location, get_supermarket] >> 
+        clear_all_data >> 
+        [insert_category, insert_location] >> insert_goods >> insert_supermarket
+    )
