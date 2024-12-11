@@ -2,11 +2,11 @@ mydbt:
   outputs:
     dev:
       type: postgres
-      host: localhost
+      host: postgres
       user: airflow
       pass: airflow
       port: 5432
       dbname: retail_supermarket
-      schema: supermarket_dbt
+      schema: supermarket
       threads: 1
   target: dev

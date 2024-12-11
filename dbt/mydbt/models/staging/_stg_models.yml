@@ -1,66 +1,41 @@
 version: 2
 
 models:
-  - name: stg__location
-    description: Staging model for location
+  - name: stg__goods_category_joined
+    description: Staging model for goods and category are joined.
     columns:
-      - name: postal_code
-        tests:
-          - unique
-          - not_null
-      - name: city
-      - name: state
-      - name: region
-        tests:
-          - accepted_values:
-              values: ['Central', 'East', 'South', 'West']
-      - name: country
-        tests:
-          - accepted_values:
-              values: ['United States']
-  
-  - name: stg__supermarket
-    description: Staging model for supermarket
+      - name: goods_id
+      - name: category
+      - name: goods_name
+      - name: sales
+      - name: quantity
+      - name: discountry
+      - name: profit
+      - name: supermarket_location_code
+    
+  - name: stg__supermarket_location_joined
+    description: Staging model for supermarket and location are joined.
     columns:
       - name: supermarket_id
-        tests:
-          - unique
-          - not_null
       - name: segment
       - name: ship_mode
+      - name: city
+      - name: state
       - name: location_code
-        tests:
-          - relationships:
-              to: ref('stg__location')
-              field: postal_code
-
-  - name: stg__category
-    description: Staging model for category
+      - name: country_code
+    
+  - name: stg__supermarket
+    description: Staging model for supermarket totally joined.
     columns:
-      - name: id
-        tests:
-          - unique
-          - not_null
-      - name: name
-  
-  - name: stg__goods
-    description: Staging model for goods
-    columns:
-      - name: id
-        tests:
-          - unique
-          - not_null
-      - name: category_id
-        tests:
-          - relationships:
-              to: ref('stg__category')
-              field: id
-      - name: supermarket_location_code
-        tests:
-          - relationships:
-              to: ref('stg__location')
-              field: postal_code
-      - name: name
+      - name: supermarket_id
+      - name: location_code
+      - name: segment
+      - name: ship_mode
+      - name: city
+      - name: state
+      - name: country_code
+      - name: goods_name
+      - name: category
       - name: sales
       - name: quantity
       - name: discount

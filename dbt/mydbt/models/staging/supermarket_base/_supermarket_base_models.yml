@@ -1,0 +1,67 @@
+version: 2
+
+models:
+  - name: base__location
+    description: Base model for location
+    columns:
+      - name: postal_code
+        tests:
+          - unique
+          - not_null
+      - name: city
+      - name: state
+      - name: region
+        tests:
+          - accepted_values:
+              values: ['Central', 'East', 'South', 'West']
+      - name: country_code
+        tests:
+          - accepted_values:
+              values: ['US']
+  
+  - name: base__supermarket
+    description: Base model for supermarket
+    columns:
+      - name: supermarket_id
+        tests:
+          - unique
+          - not_null
+      - name: segment
+      - name: ship_mode
+      - name: location_code
+        tests:
+          - relationships:
+              to: ref('base__location')
+              field: postal_code
+
+  - name: base__category
+    description: Base model for category
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+      - name: name
+  
+  - name: base__goods
+    description: Base model for goods
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+      - name: category_id
+        tests:
+          - relationships:
+              to: ref('base__category')
+              field: id
+      - name: supermarket_location_code
+        tests:
+          - relationships:
+              to: ref('base__location')
+              field: postal_code
+      - name: name
+      - name: sales
+      - name: quantity
+      - name: discount
+      - name: profit

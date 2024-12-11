@@ -1,0 +1,78 @@
+version: 2
+
+models:
+  - name: int__sum_sales
+    description: Intermediate model for sum of sales
+    columns:
+      - name: supermarket_id
+      - name: location_code
+      - name: city
+      - name: state
+      - name: segment
+      - name: ship_mode
+      - name: total_sales
+
+  - name: fct__sales_consumer_segment
+    description: fact model for sum of sales consumer segment
+    columns:
+      - name: location_code
+      - name: city
+      - name: state
+      - name: ship_mode
+      - name: total_sales
+
+  - name: fct__sales_corporate_segment
+    description: fact model for sum of sales corporate segment
+    columns:
+      - name: location_code
+      - name: city
+      - name: state
+      - name: ship_mode
+      - name: total_sales
+
+  - name: fct__sales_homeOffice_segment
+    description: fact model for sum of sales home office segment
+    columns:
+      - name: location_code
+      - name: city
+      - name: state
+      - name: ship_mode
+      - name: total_sales
+
+  - name: int__sum_profit
+    description: Intermediate model for sum of profit
+    columns:
+      - name: supermarket_id
+      - name: location_code
+      - name: city
+      - name: state
+      - name: segment
+      - name: ship_mode
+      - name: total_profit
+
+  - name: fct__profit_consumer_segment
+    description: fact model for sum of profit consumer segment
+    columns:
+      - name: location_code
+      - name: city
+      - name: state
+      - name: ship_mode
+      - name: total_profit
+
+  - name: fct__profit_corporate_segment
+    description: fact model for sum of profit corporate segment
+    columns:
+      - name: location_code
+      - name: city
+      - name: state
+      - name: ship_mode
+      - name: total_profit
+
+  - name: fct__profit_homeOffice_segment
+    description: fact model for sum of profit home office segment
+    columns:
+      - name: location_code
+      - name: city
+      - name: state
+      - name: ship_mode
+      - name: total_profit
